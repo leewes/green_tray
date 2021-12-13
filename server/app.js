@@ -11,7 +11,7 @@ app.use(
   )
 );
 
-app.use(express.static(path.resolve(__dirname, "..", "build")));
+app.use(express.static(path.resolve(__dirname, "..", "dist")));
 
 app.get("/api/seeds", async (req, res) => {
   const seeds = await db.select().table("seeds");
