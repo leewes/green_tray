@@ -6,7 +6,8 @@
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "dbs": "node server"
+    "dbs": "node server",
+    "serve": "yarn build && yarn dbs"
   },
   "dependencies": {
     "axios": "^0.24.0",
