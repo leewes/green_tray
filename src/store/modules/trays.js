@@ -13,6 +13,9 @@ const actions = {
     const response = await axios.get("/api/trays");
     commit("setTrays", response.data);
   },
+  async postTray( data ) {
+    await axios.post("/api/trays", data);
+  }
 };
 
 const mutations = {
