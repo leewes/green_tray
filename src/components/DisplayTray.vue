@@ -1,27 +1,40 @@
 <template>
   <div class="display-tray">
-    <div v-for="i in height" class="wrapper" :key="i">
-      Row {{i}}
-      <div v-for="j in length" :key="j">
-      <Cell :col="j" :row="i"/>
+    <div v-if="Object.keys(selectTray).length === 0">
+      <div v-for="i in height" class="wrapper" :key="i">
+        {{ i }}
+        <div v-for="j in length" :key="j">
+          <NewCell :col="j" :row="i" />
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      <div v-for="(items, row) in selectCellData" class="wrapper" :key="row">
+        {{ row }}
+        <div v-for="(data ,col) in items" :key="col">
+          <LoadCell :col="col" :row="row" :data="data"/>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Cell from "./Cell";
+import { mapGetters } from "vuex";
+import LoadCell from "./LoadCell";
+import NewCell from "./NewCell";
 
 export default {
   name: "DisplayTray",
   components: {
-    Cell,
+    LoadCell,
+    NewCell
   },
   data: () => ({
     height: 4,
     length: 8,
   }),
-  
+  computed: mapGetters(["selectTray", "selectCellData"]),
 };
 </script>
 

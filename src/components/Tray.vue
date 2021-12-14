@@ -11,7 +11,6 @@ export default {
   methods: {
     ...mapActions(["loadSelectTray"]),
     loadTray() {
-        console.log(this.data)
         this.loadSelectTray(this.data);
     },
   },
