@@ -1,20 +1,23 @@
 <template>
   <div id="app">
     Welcome to Green Tray App!
+    <Sidebar />
     <Tray />
     <Menu />
   </div>
 </template>
 
 <script>
-import Tray from './components/Tray.vue';
+import Tray from "./components/Tray.vue";
 import Menu from "./components/Menu.vue";
+import Sidebar from "./components/Sidebar.vue";
 
 export default {
   name: 'App',
   components: {
     Tray,
-    Menu
+    Menu,
+    Sidebar
   }
 }
 </script>
