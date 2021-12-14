@@ -2,16 +2,19 @@
   <div id="app">
     Welcome to Green Tray App!
     <Tray />
+    <Menu />
   </div>
 </template>
 
 <script>
-import Tray from './components/Tray.vue'
+import Tray from './components/Tray.vue';
+import Menu from "./components/Menu.vue";
 
 export default {
   name: 'App',
   components: {
-    Tray
+    Tray,
+    Menu
   }
 }
 </script>

@@ -1,9 +1,8 @@
 <template>
-  <div class="wrapper" @click="click" :style="bgc">{{row}}{{col}}</div>
+  <div class="cell" @click="click" :style="bgc">{{`Col: ${col}`}}</div>
 </template>
 
 <script>
-import Cell from "./Cell";
 
 export default {
   name: "Cell",
@@ -25,7 +24,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.wrapper {
+.cell {
   display: flex;
   cursor: pointer;
 }

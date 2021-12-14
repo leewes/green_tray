@@ -1,6 +1,7 @@
 <template>
   <div class="tray">
     <div v-for="i in height" class="wrapper">
+      Row {{i}}
       <div v-for="j in length">
       <Cell :col="j" :row="i"/>
       </div>
@@ -34,7 +35,7 @@ export default {
 .wrapper > div {
   font-size: 4vh;
   color: white;
-  background: gray;
+  background: sienna;
   margin: 0.1em;
   padding: 0.3em;
   border-radius: 3px;
