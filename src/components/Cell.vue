@@ -27,5 +27,6 @@ export default {
 .cell {
   display: flex;
   cursor: pointer;
+  user-select: none;
 }
 </style>
