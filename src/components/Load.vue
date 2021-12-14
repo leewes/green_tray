@@ -1,17 +1,21 @@
 <template>
   <div>
     <header>Load</header>
-    <div v-for="tray in allTrays" :key="tray.id">
-        <div class="tray">{{ tray.name }}</div>
+    <div v-for="tray in allTrays" :key="tray.id" >
+      <Tray :data="tray"/>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Tray from "./Tray";
 
 export default {
   name: "Load",
+  components: {
+      Tray,
+  },
   computed: mapGetters(["allTrays"]),
   methods: {
     ...mapActions(["fetchTrays"]),
@@ -24,7 +28,7 @@ export default {
 
 <style>
 .tray {
-    user-select: none;
-    cursor: pointer;
+  user-select: none;
+  cursor: pointer;
 }
 </style>

@@ -9,14 +9,14 @@ const getters = {
 };
 
 const actions = {
-  async fetchTrays({commit}) {
+  async fetchTrays({ commit }) {
     const response = await axios.get("/api/trays");
-    commit("setTrays", response.data)
-  }
+    commit("setTrays", response.data);
+  },
 };
 
 const mutations = {
-  setTrays: (state, trays) => (state.trays = trays)
+  setTrays: (state, trays) => (state.trays = trays),
 };
 
 export default {
