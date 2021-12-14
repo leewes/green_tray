@@ -1,8 +1,8 @@
 <template>
   <div>
-    <header>Load</header>
-    <div v-for="tray in allTrays" :key="tray.id" >
-      <Tray :data="tray"/>
+    <h3>Loaded Trays</h3>
+    <div v-for="tray in allTrays" :key="tray.id">
+      <Tray :data="tray" />
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@ import Tray from "./Tray";
 export default {
   name: "Load",
   components: {
-      Tray,
+    Tray,
   },
   computed: mapGetters(["allTrays"]),
   methods: {
@@ -27,6 +27,9 @@ export default {
 </script>
 
 <style>
+h3 {
+  user-select: none;
+}
 .tray {
   user-select: none;
   cursor: pointer;

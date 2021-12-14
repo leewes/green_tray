@@ -1,5 +1,5 @@
 <template>
-  <div>SAVE!</div>
+  <button class="save">Save</button>
 </template>
 
 <script>
