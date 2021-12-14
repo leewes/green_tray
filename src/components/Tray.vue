@@ -3,15 +3,15 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapMutations } from "vuex";
 
 export default {
   name: "Tray",
   props: ["data"],
   methods: {
-    ...mapActions(["loadSelectTray"]),
+    ...mapMutations(["setSelectTray"]),
     loadTray() {
-        this.loadSelectTray(this.data);
+        this.setSelectTray(this.data);
     },
   },
 };

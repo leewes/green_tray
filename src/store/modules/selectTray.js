@@ -7,13 +7,10 @@ const getters = {
   selectCellData: (state) => JSON.parse(state.selectTray.cellData),
 };
 
-const actions = {
-  async loadSelectTray({ commit }, data) {
-    commit("setSelectTray", data);
-  },
-};
+const actions = {};
 
 const mutations = {
+  resetSelectTray: (state) => (state.selectTray = {}),
   setSelectTray: (state, selectTray) => (state.selectTray = {...state.selectTray, ...selectTray}),
 };
 
