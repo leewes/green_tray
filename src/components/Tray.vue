@@ -11,7 +11,8 @@ export default {
   methods: {
     ...mapMutations(["setSelectTray"]),
     loadTray() {
-        this.setSelectTray(this.data);
+        const parseData = {...this.data, cellData: JSON.parse(this.data.cellData)}
+        this.setSelectTray(parseData);
     },
   },
 };

@@ -4,7 +4,7 @@ const state = {
 
 const getters = {
   selectTray: (state) => state.selectTray,
-  selectCellData: (state) => JSON.parse(state.selectTray.cellData),
+  selectCellData: (state) => state.selectTray.cellData,
 };
 
 const actions = {};

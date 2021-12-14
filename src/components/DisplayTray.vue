@@ -1,9 +1,9 @@
 <template>
   <div class="display-tray">
     <div v-if="Object.keys(selectTray).length === 0">
-      <div v-for="i in height" class="wrapper" :key="i">
+      <div v-for="i in row" class="wrapper" :key="i">
         {{ i }}
-        <div v-for="j in length" :key="j">
+        <div v-for="j in column" :key="j">
           <NewCell :col="j" :row="i" />
         </div>
       </div>
@@ -31,8 +31,8 @@ export default {
     NewCell
   },
   data: () => ({
-    height: 4,
-    length: 8,
+    row: 4,
+    column: 8,
   }),
   computed: mapGetters(["selectTray", "selectCellData"]),
 };
