@@ -1,59 +1,27 @@
 <template>
-  <div class="tray">
-    <div v-for="i in height" class="wrapper">
-      Row {{i}}
-      <div v-for="j in length">
-      <Cell :col="j" :row="i"/>
-      </div>
-    </div>
-  </div>
+  <div class="tray" @click="loadTray">{{data.name}}</div>
 </template>
 
 <script>
-import Cell from "./Cell";
+import { mapMutations } from "vuex";
 
 export default {
   name: "Tray",
-  components: {
-    Cell,
+  props: ["data"],
+  methods: {
+    ...mapMutations(["setSelectTray"]),
+    loadTray() {
+        this.setSelectTray(this.data);
+    },
   },
-  data: () => ({
-    height: 4,
-    length: 8,
-  }),
-  
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.wrapper {
-  display: flex;
+.tray {
   cursor: pointer;
-}
-
-.wrapper > div {
-  font-size: 4vh;
-  color: white;
-  background: sienna;
-  margin: 0.1em;
-  padding: 0.3em;
-  border-radius: 3px;
-  flex: 1;
-}
-
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+  user-select: none;
+  text-align: center;
 }
 </style>

@@ -1,22 +1,27 @@
 <template>
   <div id="app">
     Welcome to Green Tray App!
-    <Tray />
+    <Sidebar />
+    <DisplayTray />
     <Menu />
   </div>
 </template>
 
 <script>
-import Tray from './components/Tray.vue';
+import DisplayTray from "./components/DisplayTray.vue";
 import Menu from "./components/Menu.vue";
+import Sidebar from "./components/Sidebar.vue";
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Tray,
-    Menu
-  }
-}
+    DisplayTray,
+    Menu,
+    Sidebar,
+  },
+  computed: mapGetters(["selectTray"]),
+};
 </script>
 
 <style>

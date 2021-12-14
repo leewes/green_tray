@@ -1,21 +1,22 @@
 <template>
-  <div class="cell" @click="click" :style="bgc">{{`Col: ${col}`}}</div>
+  <div>
+    <div class="cell" @click="handleClick" :style="bgc">{{ data.name }}</div>
+  </div>
 </template>
 
 <script>
-
 export default {
   name: "Cell",
-  props: ["col", "row"],
+  props: ["col", "row", "data"],
   data() {
     return {
       bgc: {
-        backgroundColor: "gray",
+        backgroundColor: this.data.color,
       },
     };
   },
   methods: {
-    click: function () {
+    handleClick: function () {
       this.bgc.backgroundColor = "green";
     },
   },
@@ -27,5 +28,7 @@ export default {
 .cell {
   display: flex;
   cursor: pointer;
+  user-select: none;
+  text-align: center;
 }
 </style>
