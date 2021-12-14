@@ -1,45 +1,42 @@
 <template>
   <div class="tray">
     <div v-for="i in height" class="wrapper">
-      <div v-for="j in length" @click="click" :style="bgc">
-        <div></div>
+      <div v-for="j in length">
+      <Cell :col="j" :row="i"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Cell from "./Cell";
+
 export default {
   name: "Tray",
+  components: {
+    Cell,
+  },
   data: () => ({
     height: 4,
     length: 8,
-    bgc: {
-      backgroundColor: 'gray'
-    }
   }),
-  methods: {
-    click: function() {
-      this.bgc.backgroundColor = 'green';
-    },
-  },
+  
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .wrapper {
-   display: flex;
-   cursor: pointer;
+  display: flex;
+  cursor: pointer;
 }
 
 .wrapper > div {
   font-size: 4vh;
   color: white;
   background: gray;
-  margin: .1em;
-  padding: .3em;
+  margin: 0.1em;
+  padding: 0.3em;
   border-radius: 3px;
   flex: 1;
 }
