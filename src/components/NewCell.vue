@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="cell" @click="handleClick" :style="bgc">{{ col }}</div>
+    <div class="cell" @click="handleClick" :style="bgc">{{ name }}</div>
   </div>
 </template>
 
@@ -11,6 +11,7 @@ export default {
   props: ["col", "row"],
   data() {
     return {
+      name: "No Seed",
       bgc: {
         backgroundColor: "gray",
       },
@@ -26,6 +27,7 @@ export default {
     let data = {
       [this.row]: {
         [this.col] : {
+          name: this.name,
           color: this.bgc.backgroundColor,
         }
       } 

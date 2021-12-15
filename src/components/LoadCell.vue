@@ -1,23 +1,22 @@
 <template>
   <div>
-    <div class="cell" @click="handleClick" :style="bgc">{{ data.name }}</div>
+    <div class="cell" @click="handleClick" :style="{ backgroundColor: this.selectCellData[row][col].color}">
+      {{selectCellData[row][col].name}}
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "Cell",
-  props: ["col", "row", "data"],
-  data() {
-    return {
-      bgc: {
-        backgroundColor: this.data.color,
-      },
-    };
+  props: ["col", "row"],
+  computed: {
+    ...mapGetters(["selectCellData"]),
   },
   methods: {
     handleClick: function () {
-      this.bgc.backgroundColor = "green";
+      this.selectCellData[this.row][this.col].color = "green"
     },
   },
 };
