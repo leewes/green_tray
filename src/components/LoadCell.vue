@@ -1,7 +1,11 @@
 <template>
   <div>
-    <div class="cell" @click="handleClick" :style="{ backgroundColor: this.selectCellData[row][col].color}">
-      {{selectCellData[row][col].name}}
+    <div
+      class="cell"
+      @click="handleClick"
+      :style="{ backgroundColor: this.selectCellData[row][col].color }"
+    >
+      {{ selectCellData[row][col].name }}
     </div>
   </div>
 </template>
@@ -16,7 +20,7 @@ export default {
   },
   methods: {
     handleClick: function () {
-      this.selectCellData[this.row][this.col].color = "green"
+      this.selectCellData[this.row][this.col].color = "green";
     },
   },
 };

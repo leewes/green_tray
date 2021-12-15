@@ -11,11 +11,17 @@ const getters = {
 const actions = {
   async fetchTrays({ commit }) {
     const response = await axios.get("/api/trays");
-    commit("setTrays", response.data);
+    commit(
+      "setTrays",
+      response.data.map((tray) => {
+        return { ...tray, cellData: JSON.parse(tray.cellData) };
+      })
+    );
   },
   async postTray({ commit }, data) {
     const response = await axios.post("/api/trays", data);
-    commit("addTray", response.data);
+    response.data[0].cellData = JSON.parse(response.data[0].cellData)
+    commit("addTray", response.data[0]);
   },
 };
 
