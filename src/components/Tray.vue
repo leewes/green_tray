@@ -1,5 +1,5 @@
 <template>
-  <div class="tray" @click="handleClick">{{data.name}}</div>
+  <div class="tray" @click="handleClick">{{ data.name }}</div>
 </template>
 
 <script>
@@ -11,8 +11,11 @@ export default {
   methods: {
     ...mapMutations(["setSelectTray"]),
     handleClick() {
-        const parseData = {...this.data, cellData: JSON.parse(this.data.cellData)}
-        this.setSelectTray(parseData);
+      const parseData = {
+        ...this.data,
+        cellData: JSON.parse(this.data.cellData),
+      };
+      this.setSelectTray(parseData);
     },
   },
 };
