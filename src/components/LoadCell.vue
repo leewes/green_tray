@@ -12,6 +12,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+
 export default {
   name: "Cell",
   props: ["col", "row"],
