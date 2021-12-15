@@ -1,18 +1,16 @@
 <template>
   <div class="display-tray">
-    <div v-if="Object.keys(selectTray).length === 0">
-      <div v-for="i in height" class="wrapper" :key="i">
-        {{ i }}
-        <div v-for="j in length" :key="j">
-          <NewCell :col="j" :row="i" />
+    <div v-if="selectTray.id === undefined" >
+      <div v-for="row in getRow" class="wrapper" :key="row">
+        <div v-for="col in getColumn" :key="col">
+          <NewCell :row="row" :col="col" />
         </div>
       </div>
     </div>
     <div v-else>
       <div v-for="(items, row) in selectCellData" class="wrapper" :key="row">
-        {{ row }}
-        <div v-for="(data ,col) in items" :key="col">
-          <LoadCell :col="col" :row="row" :data="data"/>
+        <div v-for="(data, col) in items" :key="col">
+          <LoadCell :col="col" :row="row" :data="data" />
         </div>
       </div>
     </div>
@@ -28,13 +26,9 @@ export default {
   name: "DisplayTray",
   components: {
     LoadCell,
-    NewCell
+    NewCell,
   },
-  data: () => ({
-    height: 4,
-    length: 8,
-  }),
-  computed: mapGetters(["selectTray", "selectCellData"]),
+  computed: mapGetters(["selectTray", "selectCellData", "getRow", "getColumn"]),
 };
 </script>
 
@@ -53,20 +47,5 @@ export default {
   padding: 0.3em;
   border-radius: 3px;
   flex: 1;
-}
-
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 </style>
