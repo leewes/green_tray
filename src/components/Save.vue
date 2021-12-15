@@ -8,7 +8,7 @@ export default {
   name: "Save",
   computed: mapGetters(["selectTray", "allTrays"]),
   methods: {
-    ...mapActions(["postTray"]),
+    ...mapActions(["postTray", "fetchTrays"]),
     handleClick() {
       if (this.selectTray.id !== undefined) {
       } else {
@@ -18,6 +18,7 @@ export default {
         };
         this.postTray(data);
       }
+      this.fetchTrays();
     },
   },
 };

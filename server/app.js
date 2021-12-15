@@ -12,6 +12,7 @@ app.use(
 );
 
 app.use(express.static(path.resolve(__dirname, "..", "dist")));
+app.use(express.json());
 
 app.get("/api/seeds", async (req, res) => {
   try {
@@ -34,14 +35,14 @@ app.get("/api/trays", async (req, res) => {
 });
 
 app.post("/api/trays", async (req, res) => {
-  try{
+  try {
     const data = await db.insert(req.body).returning("*").into("trays");
-    res.status(200).json(data)
-  } catch(err) {
+    res.status(200).json(data);
+  } catch (err) {
     console.error("Error posting tray!", err);
     res.sendStatus(500);
   }
-})
+});
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "..", "dist", "index.html"));
