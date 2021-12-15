@@ -1,39 +1,40 @@
 <template>
   <div>
-    <div class="cell" @click="handleClick" :style="bgc">{{ name }}</div>
+    <div
+      class="cell"
+      @click="handleClick"
+      :style="{ backgroundColor: this.selectCellData[row][col].color }"
+    >
+      {{ selectCellData[row][col].name }}
+    </div>
   </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapGetters, mapMutations } from "vuex";
 export default {
   name: "Cell",
   props: ["col", "row"],
-  data() {
-    return {
-      name: "No Seed",
-      bgc: {
-        backgroundColor: "gray",
-      },
-    };
+  computed: {
+    ...mapGetters(["selectCellData"]),
   },
   methods: {
     ...mapMutations(["addCellData"]),
     handleClick: function () {
-      this.bgc.backgroundColor = "green";
+      this.selectCellData[this.row][this.col].color = "green";
     },
   },
   created() {
     let data = {
       [this.row]: {
-        [this.col] : {
-          name: this.name,
-          color: this.bgc.backgroundColor,
-        }
-      } 
+        [this.col]: {
+          name: "No Seed",
+          color: "gray",
+        },
+      },
     };
     this.addCellData(data);
-  }
+  },
 };
 </script>
 
