@@ -2,7 +2,6 @@
   <div class="display-tray">
     <div v-if="Object.keys(selectTray).length === 0">
       <div v-for="i in row" class="wrapper" :key="i">
-        {{ i }}
         <div v-for="j in column" :key="j">
           <NewCell :col="j" :row="i" />
         </div>
@@ -10,9 +9,8 @@
     </div>
     <div v-else>
       <div v-for="(items, row) in selectCellData" class="wrapper" :key="row">
-        {{ row }}
-        <div v-for="(data ,col) in items" :key="col">
-          <LoadCell :col="col" :row="row" :data="data"/>
+        <div v-for="(data, col) in items" :key="col">
+          <LoadCell :col="col" :row="row" :data="data" />
         </div>
       </div>
     </div>
@@ -28,7 +26,7 @@ export default {
   name: "DisplayTray",
   components: {
     LoadCell,
-    NewCell
+    NewCell,
   },
   data: () => ({
     row: 4,
