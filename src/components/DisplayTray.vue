@@ -1,6 +1,6 @@
 <template>
   <div class="display-tray">
-    <div v-if="selectTray.id === undefined" >
+    <div v-if="selectTray.id === undefined">
       <div v-for="row in getRow" class="wrapper" :key="row">
         <div v-for="col in getColumn" :key="col">
           <NewCell :row="row" :col="col" />
@@ -10,7 +10,7 @@
     <div v-else>
       <div v-for="(items, row) in selectCellData" class="wrapper" :key="row">
         <div v-for="(data, col) in items" :key="col">
-          <LoadCell :col="col" :row="row" :data="data" />
+          <LoadCell :col="col" :row="row" />
         </div>
       </div>
     </div>
