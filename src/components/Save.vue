@@ -4,6 +4,7 @@
 
 <script>
 import { mapActions, mapGetters, mapMutations } from "vuex";
+
 export default {
   name: "Save",
   computed: mapGetters(["selectTray", "allTrays"]),
