@@ -1,5 +1,5 @@
 const state = {
-  selectTray: {},
+  selectTray: { name: "Input Tray Name", cellData: {} },
 };
 
 const getters = {
@@ -11,7 +11,16 @@ const actions = {};
 
 const mutations = {
   resetSelectTray: (state) => (state.selectTray = {}),
-  setSelectTray: (state, selectTray) => (state.selectTray = {...state.selectTray, ...selectTray}),
+  setSelectTray: (state, selectTray) =>
+    (state.selectTray = { ...state.selectTray, ...selectTray }),
+  addCellData: (state, data) => {
+    const row = Object.keys(data)[0];
+    if (state.selectTray.cellData[row] === undefined) {
+      state.selectTray.cellData = {...state.selectTray.cellData, ...data}
+    } else {
+      state.selectTray.cellData[row] = {...state.selectTray.cellData[row], ...data[row]};
+    }
+  },
 };
 
 export default {

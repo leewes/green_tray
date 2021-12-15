@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations } from 'vuex';
 export default {
   name: "Cell",
   props: ["col", "row"],
@@ -17,23 +17,21 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["setSelectTray"]),
+    ...mapMutations(["addCellData"]),
     handleClick: function () {
       this.bgc.backgroundColor = "green";
     },
   },
   created() {
     let data = {
-      cellData: {
-        [this.row]: {
-          [this.col]: {
-            color: this.bgc.backgroundColor,
-          },
-        },
-      },
+      [this.row]: {
+        [this.col] : {
+          color: this.bgc.backgroundColor,
+        }
+      } 
     };
-    this.setSelectTray(data);
-  },
+    this.addCellData(data);
+  }
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="display-tray">
-    <div v-if="Object.keys(selectTray).length === 0">
+    <div v-if="selectTray.id === undefined" >
       <div v-for="row in getRow" class="wrapper" :key="row">
         <div v-for="col in getColumn" :key="col">
           <NewCell :row="row" :col="col" />
