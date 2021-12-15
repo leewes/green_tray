@@ -13,13 +13,15 @@ const actions = {
     const response = await axios.get("/api/trays");
     commit("setTrays", response.data);
   },
-  async postTray( data ) {
-    await axios.post("/api/trays", data);
-  }
+  async postTray(data, { commit }) {
+    const response = await axios.post("/api/trays", data);
+    commit("addTray", response.data);
+  },
 };
 
 const mutations = {
   setTrays: (state, trays) => (state.trays = trays),
+  addTray: (state, tray) => state.trays.unshift(tray),
 };
 
 export default {
