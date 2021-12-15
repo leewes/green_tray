@@ -144,7 +144,7 @@ exports.seed = function (knex) {
     .then(function () {
       // Inserts seed entries
       return knex("trays").insert([
-        { id: 1, name: "MyFirstTray", cellData: JSON.stringify(data) },
+        { name: "MyFirstTray", cellData: JSON.stringify(data) },
       ]);
     });
 };
