@@ -1,15 +1,15 @@
 const state = {
-  column: 8,
+  row: 4,
 };
 
 const getters = {
-  getColumn: (state) => state.column,
+  getRow: (state) => state.row,
 };
 
 const actions = {};
 
 const mutations = {
-  setColumn: (state, newCol) => (state.column = newCol),
+  setRow: (state, newRow) => (state.row = newRow),
 };
 
 export default {

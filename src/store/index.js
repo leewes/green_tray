@@ -4,6 +4,7 @@ import trays from "./modules/trays";
 import selectTray from "./modules/selectTray";
 import selectCell from "./modules/selectCell";
 import column from "./modules/column";
+import row from "./modules/row";
 
 Vue.use(Vuex);
 
@@ -13,5 +14,6 @@ export default new Vuex.Store({
     selectTray,
     selectCell,
     column,
+    row,
   },
 });
