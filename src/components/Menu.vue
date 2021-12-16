@@ -6,12 +6,16 @@
     </label>
     <label>
       Seed Color:
-      <input/>
+      <input />
     </label>
     <div class="container">
       <Save />
-      <button v-if="selectTray.id !== undefined" class="revert" @click="handleClick">
-        Revert Changes
+      <button
+        v-if="selectTray.id !== undefined"
+        class="revert"
+        @click="handleClick"
+      >
+        Reset
       </button>
       <button v-else @click="handleResetClick">Reset</button>
     </div>
@@ -60,6 +64,7 @@ export default {
 }
 .container {
   display: flex;
-  flex-direction:column;
+  flex-direction: row;
+  gap: 5%;
 }
 </style>

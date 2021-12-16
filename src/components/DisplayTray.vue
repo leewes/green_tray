@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 import LoadCell from "./LoadCell";
 import NewCell from "./NewCell";
 
