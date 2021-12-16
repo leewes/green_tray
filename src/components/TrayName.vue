@@ -1,12 +1,12 @@
 <template>
-  <div class="tray" @click="handleClick">{{ data.name }}</div>
+  <div class="tray-name" @click="handleClick">{{ data.name }}</div>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
 
 export default {
-  name: "Tray",
+  name: "TrayName",
   props: ["data"],
   methods: {
     ...mapMutations(["setSelectTray"]),
