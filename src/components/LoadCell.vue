@@ -20,8 +20,9 @@ export default {
     ...mapGetters(["selectCellData"]),
   },
   methods: {
-    ...mapMutations(["addCellData", "setCell"]),
+    ...mapMutations(["addCellData", "setCell", "setLocation"]),
     handleClick: function () {
+      this.setLocation([this.col, this.row]);
       this.setCell({
         name: this.selectCellData[this.row][this.col].name,
         color: this.selectCellData[this.row][this.col].color,

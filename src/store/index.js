@@ -5,7 +5,7 @@ import selectTray from "./modules/selectTray";
 import selectCell from "./modules/selectCell";
 import column from "./modules/column";
 import row from "./modules/row";
-import location from "./modueles/location"
+import location from "./modules/location"
 
 Vue.use(Vuex);
 

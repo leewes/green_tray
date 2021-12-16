@@ -2,11 +2,11 @@
   <div class="menu">
     <label>
       Seed Name:
-      <input :placeholder="getCell.name"/>
+      <input :placeholder="getCell.name" />
     </label>
     <label>
       Seed Color:
-      <input @change="colorChange" :placeholder="getCell.color"/>
+      <input @change="colorChange" :placeholder="getCell.color" />
     </label>
     <div class="container">
       <Save />
@@ -30,11 +30,18 @@ export default {
   components: { Save },
   name: "Menu",
   computed: {
-    ...mapGetters(["selectTray", "allTrays", "selectCellData", "getRow", "getCell"]),
+    ...mapGetters([
+      "selectTray",
+      "allTrays",
+      "selectCellData",
+      "getRow",
+      "getCell",
+      "getLocation",
+    ]),
   },
   methods: {
     ...mapActions(["fetchTrays"]),
-    ...mapMutations(["setSelectTray", "setRow"]),
+    ...mapMutations(["setSelectTray", "setRow", "setCell", "addCellData"]),
     handleClick: async function () {
       if (this.selectTray.id !== undefined) {
         await this.fetchTrays();
@@ -48,7 +55,17 @@ export default {
       await this.setRow(0);
       this.setRow(currRow);
     },
-    colorChange: function () {},
+    colorChange: function (e) {
+      if (e.target.value.length !== 0) {
+        this.setCell({ ...this.getCell, color: e.target.value });
+        const data = {
+          [this.getLocation[0]]: {
+            [this.getLocation[1]]: this.getCell,
+          }
+        };
+        this.addCellData(data);
+      }
+    },
   },
 };
 </script>
