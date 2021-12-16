@@ -29,7 +29,7 @@ You will also need to create a database in psql
 $ CREATE DATABASE tray;
 ```
 
-Once the database has been created, you can now start your Vue and Knex servers
+Once the database has been created, you can now start your Vue development and express servers
 
 ```bash
 # start express server
