@@ -1,12 +1,12 @@
 <template>
-  <div class="tray" @click="handleClick">{{ data.name }}</div>
+  <div class="tray-name" @click="handleClick">{{ data.name }}</div>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
 
 export default {
-  name: "Tray",
+  name: "TrayName",
   props: ["data"],
   methods: {
     ...mapMutations(["setSelectTray"]),
@@ -19,9 +19,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.tray {
+.tray-name {
   cursor: pointer;
   user-select: none;
   text-align: center;
+}
+.tray-name:active {
+  background-color: yellow;
 }
 </style>

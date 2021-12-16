@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "Cell",
@@ -20,8 +20,13 @@ export default {
     ...mapGetters(["selectCellData"]),
   },
   methods: {
+    ...mapMutations(["addCellData", "setCell", "setLocation"]),
     handleClick: function () {
-      this.selectCellData[this.row][this.col].color = "green";
+      this.setLocation([this.col, this.row]);
+      this.setCell({
+        name: this.selectCellData[this.row][this.col].name,
+        color: this.selectCellData[this.row][this.col].color,
+      });
     },
   },
 };
@@ -34,5 +39,9 @@ export default {
   cursor: pointer;
   user-select: none;
   text-align: center;
+}
+.cell:active {
+  border: gray;
+  border-style: ridge;
 }
 </style>

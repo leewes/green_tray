@@ -1,5 +1,5 @@
 <template>
-  <button @click="handleClick">Delete</button>
+  <div class="trash" @click="handleClick">🗑️</div>
 </template>
 
 <script>
@@ -25,4 +25,13 @@ export default {
 </script>
 
 <style>
+.trash {
+  cursor: pointer;
+}
+
+.trash:hover {
+    background-color: red;
+}
+
+
 </style>
