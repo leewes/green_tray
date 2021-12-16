@@ -7,7 +7,11 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "node server",
-    "serve": "yarn build && yarn start"
+    "serve": "yarn build && yarn start",
+    "makeMigration": "knex migrate:make",
+    "migrate": "knex migrate:latest",
+    "makeSeed": "knex seed:make",
+    "seed": "knex seed:run"
   },
   "dependencies": {
     "axios": "^0.24.0",
