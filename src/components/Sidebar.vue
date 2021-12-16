@@ -1,7 +1,11 @@
 <template>
   <div class="sidebar">
+    <h5>Currently editing:</h5>
+    <h5>{{ selectTray.name }}</h5>
     <Load />
-    <button v-if="allTrays.length !== 0" class="revert" @click="handleClick">Revert Changes</button>
+    <button v-if="allTrays.length !== 0" class="revert" @click="handleClick">
+      Revert Changes
+    </button>
   </div>
 </template>
 

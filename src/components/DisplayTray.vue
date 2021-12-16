@@ -1,5 +1,6 @@
 <template>
   <div class="display-tray">
+    {{selectTray.name}}
     <div v-if="selectTray.id === undefined">
       <button @click="handleClick">Reset</button>
       <div v-for="row in getRow" class="wrapper" :key="row">
