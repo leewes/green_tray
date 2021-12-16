@@ -6,18 +6,45 @@
     </label>
     <label>
       Seed Color:
-      <input />
+      <input/>
     </label>
-    <Save />
+    <div class="container">
+      <Save />
+      <button v-if="selectTray.id !== undefined" class="revert" @click="handleClick">
+        Revert Changes
+      </button>
+      <button v-else @click="handleResetClick">Reset</button>
+    </div>
   </div>
 </template>
 
 <script>
-import Save from './Save.vue';
+import Save from "./Save.vue";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   components: { Save },
   name: "Menu",
+  computed: {
+    ...mapGetters(["selectTray", "allTrays", "selectCellData", "getRow"]),
+  },
+  methods: {
+    ...mapActions(["fetchTrays"]),
+    ...mapMutations(["setSelectTray", "setRow"]),
+    async handleClick() {
+      if (this.selectTray.id !== undefined) {
+        await this.fetchTrays();
+        this.setSelectTray(
+          this.allTrays.find((tray) => tray.id === this.selectTray.id)
+        );
+      }
+    },
+    handleResetClick: async function () {
+      const currRow = this.getRow;
+      await this.setRow(0);
+      this.setRow(currRow);
+    },
+  },
 };
 </script>
 
@@ -30,5 +57,9 @@ export default {
   justify-content: center;
   gap: 5%;
   gap: 5%;
+}
+.container {
+  display: flex;
+  flex-direction:column;
 }
 </style>
