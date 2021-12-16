@@ -14,6 +14,8 @@ app.use(
 app.use(express.static(path.resolve(__dirname, "..", "dist")));
 app.use(express.json());
 
+//Endpoints for seeds resource
+
 app.get("/api/seeds", async (req, res) => {
   try {
     const seeds = await db.select().table("seeds");
@@ -23,6 +25,8 @@ app.get("/api/seeds", async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+//Endpoints for trays resource
 
 app.get("/api/trays", async (req, res) => {
   try {
@@ -54,6 +58,17 @@ app.patch("/api/trays/:id", async (req, res) => {
     res.status(200).json(data);
   } catch (err) {
     console.error("Error patching tray!", err);
+    res.sendStatus(500);
+  }
+});
+
+app.delete("/api/trays/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    await db("trays").where({ id: id }).del();
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error("Error deleting tray!", err);
     res.sendStatus(500);
   }
 });
