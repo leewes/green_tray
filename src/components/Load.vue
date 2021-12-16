@@ -1,6 +1,7 @@
 <template>
   <div>
     <h3>Loaded Trays</h3>
+    <h5 v-if="allTrays.length < 1">No trays found in database.</h5>
     <div v-for="tray in allTrays" :key="tray.id">
       <Tray :data="tray" />
       <Delete :id="tray.id" />

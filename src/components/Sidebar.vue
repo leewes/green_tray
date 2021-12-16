@@ -2,7 +2,7 @@
   <div>
     <Save />
     <Load />
-    <button class="revert" @click="handleClick">Revert</button>
+    <button v-if="allTrays.length !== 0" class="revert" @click="handleClick">Revert</button>
   </div>
 </template>
 
