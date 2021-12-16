@@ -15,7 +15,7 @@ export default {
     handleClick: async function () {
       await this.deleteTray(this.id);
       if (this.allTrays.length > 0) {
-        this.setSelectTray(this.allTrays[this.allTrays.length - 1]);
+        this.setSelectTray(this.allTrays[0]);
       } else {
         this.resetSelectTray();
       }
