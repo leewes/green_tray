@@ -65,7 +65,7 @@ app.patch("/api/trays/:id", async (req, res) => {
 app.delete("/api/trays/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    await db("trays").where({ id: id }).del();
+    const data = await db("trays").where({ id: id }).del().returning("*");
     res.status(200).json(data);
   } catch (err) {
     console.error("Error deleting tray!", err);
