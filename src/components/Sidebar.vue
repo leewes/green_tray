@@ -9,7 +9,7 @@
 <script>
 import Save from "./Save.vue";
 import Load from "./Load.vue";
-import { mapMutations } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "Sidebar",
@@ -17,10 +17,24 @@ export default {
     Save,
     Load,
   },
+  computed: {
+    ...mapGetters(["getRow", "getColumn", "selectTray", "allTrays"]),
+  },
   methods: {
-    ...mapMutations(["resetSelectTray"]),
-    handleClick() {
-      this.resetSelectTray();
+    ...mapActions(["fetchTrays"]),
+    ...mapMutations([
+      "resetSelectTray",
+      "setRow",
+      "setColumn",
+      "setSelectTray",
+    ]),
+    async handleClick() {
+      if (this.selectTray.id !== undefined) {
+        await this.fetchTrays();
+        this.setSelectTray(
+          this.allTrays.find((tray) => tray.id === this.selectTray.id)
+        );
+      }
     },
   },
 };
