@@ -66,7 +66,7 @@ app.delete("/api/trays/:id", async (req, res) => {
   try {
     const { id } = req.params;
     await db("trays").where({ id: id }).del();
-    res.status(200).json({ success: true });
+    res.status(200).json(data);
   } catch (err) {
     console.error("Error deleting tray!", err);
     res.sendStatus(500);
