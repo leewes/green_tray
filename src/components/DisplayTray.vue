@@ -43,6 +43,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.display-tray {
+  width: 85%;
+  height: 100%;
+  margin: auto;
+}
 .wrapper {
   display: flex;
   cursor: pointer;

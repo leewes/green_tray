@@ -19,9 +19,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.tray {
+.tray-name {
   cursor: pointer;
   user-select: none;
   text-align: center;
+}
+.tray-name:active {
+  background-color: yellow;
 }
 </style>

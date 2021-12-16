@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     Welcome to Green Tray App!
-    <Sidebar />
-    <DisplayTray />
+    <div id="container">
+      <Sidebar />
+      <DisplayTray />
+    </div>
     <Menu />
   </div>
 </template>
@@ -32,5 +34,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+#container {
+  display: flex;
+  flex-direction: row;
+}
+Sidebar {
+  order: 1;
+  position: fixed;
+  overflow-y: auto;
+  position: relative;
+  transition: width 0.2s;
+  flex-shrink: 0;
 }
 </style>

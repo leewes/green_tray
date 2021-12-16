@@ -1,20 +1,17 @@
 <template>
-  <div>
-    <Save />
+  <div class="sidebar">
     <Load />
     <button v-if="allTrays.length !== 0" class="revert" @click="handleClick">Revert Changes</button>
   </div>
 </template>
 
 <script>
-import Save from "./Save.vue";
 import Load from "./Load.vue";
 import { mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "Sidebar",
   components: {
-    Save,
     Load,
   },
   computed: {
@@ -36,6 +33,12 @@ export default {
 </script>
 
 <style>
+.sidebar {
+  padding-left: 0.5%;
+  text-align: center;
+  width: 150px;
+  padding: 0;
+}
 .reset {
   cursor: pointer;
   user-select: none;

@@ -3,8 +3,10 @@
     <h3>Loaded Trays</h3>
     <h5 v-if="allTrays.length < 1">No trays found in database.</h5>
     <div v-for="tray in allTrays" :key="tray.id">
-      <TrayName :data="tray" />
-      <Delete :id="tray.id" />
+      <div class="tray-list">
+        <TrayName :data="tray" />
+        <Delete :id="tray.id" />
+      </div>
     </div>
   </div>
 </template>
@@ -34,7 +36,16 @@ export default {
 h3 {
   user-select: none;
 }
-.tray {
+
+.tray-list > div {
+  display: inline;
+}
+
+.tray-list:hover {
+  background-color: yellow;
+}
+
+TrayName {
   user-select: none;
   cursor: pointer;
 }
