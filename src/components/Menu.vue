@@ -2,11 +2,11 @@
   <div class="menu">
     <label>
       Seed Name:
-      <input />
+      <input :placeholder="getCell.name"/>
     </label>
     <label>
       Seed Color:
-      <input />
+      <input @change="colorChange" :placeholder="getCell.color"/>
     </label>
     <div class="container">
       <Save />
@@ -30,12 +30,12 @@ export default {
   components: { Save },
   name: "Menu",
   computed: {
-    ...mapGetters(["selectTray", "allTrays", "selectCellData", "getRow"]),
+    ...mapGetters(["selectTray", "allTrays", "selectCellData", "getRow", "getCell"]),
   },
   methods: {
     ...mapActions(["fetchTrays"]),
     ...mapMutations(["setSelectTray", "setRow"]),
-    async handleClick() {
+    handleClick: async function () {
       if (this.selectTray.id !== undefined) {
         await this.fetchTrays();
         this.setSelectTray(
@@ -48,6 +48,7 @@ export default {
       await this.setRow(0);
       this.setRow(currRow);
     },
+    colorChange: function () {},
   },
 };
 </script>

@@ -20,9 +20,12 @@ export default {
     ...mapGetters(["selectCellData"]),
   },
   methods: {
-    ...mapMutations(["addCellData"]),
+    ...mapMutations(["addCellData", "setCell"]),
     handleClick: function () {
-      this.selectCellData[this.row][this.col].color = "green";
+      this.setCell({
+        name: this.selectCellData[this.row][this.col].name,
+        color: this.selectCellData[this.row][this.col].color,
+      });
     },
   },
   created() {
@@ -46,5 +49,10 @@ export default {
   cursor: pointer;
   user-select: none;
   text-align: center;
+}
+
+.cell:active {
+  border: gray;
+  border-style: ridge;
 }
 </style>
