@@ -27,7 +27,7 @@ const actions = {
   async patchTray({ commit }, data) {
     const id = data.id;
     const response = await axios.patch(`/api/trays/${id}`, data);
-    commit("refreshTrays", response.data[0]);
+    commit("updateTray", response.data[0]);
   },
   async deleteTray({ commit }, id) {
     const response = await axios.delete(`/api/trays/${id}`);
