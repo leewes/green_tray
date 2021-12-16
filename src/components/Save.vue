@@ -9,17 +9,16 @@ export default {
   name: "Save",
   computed: mapGetters(["selectTray", "allTrays"]),
   methods: {
-    ...mapMutations(["setSelectTray"]),
-    ...mapActions(["postTray", "fetchTrays"]),
+    ...mapActions(["postTray", "fetchTrays", "patchTray"]),
     async handleClick() {
+      const data = {
+        name: this.selectTray.name,
+        cellData: JSON.stringify(this.selectTray.cellData),
+      };
       if (this.selectTray.id !== undefined) {
+        await this.patch(data);
       } else {
-        const data = {
-          name: this.selectTray.name,
-          cellData: JSON.stringify(this.selectTray.cellData),
-        };
         await this.postTray(data);
-        this.setSelectTray(this.allTrays[this.allTrays.length - 1]);
       }
     },
   },

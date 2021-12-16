@@ -22,12 +22,12 @@ const actions = {
   },
   async postTray({ commit }, data) {
     const response = await axios.post("/api/trays", data);
-    commit("addTray", response.data);
+    commit("addTray", response.data[0]);
   },
   async patchTray({ commit }, data) {
     const id = data.id;
     const response = await axios.patch(`/api/trays/${id}`, data);
-    commit("refreshTrays", response.data);
+    commit("refreshTrays", response.data[0]);
   },
 };
 
