@@ -29,6 +29,10 @@ const actions = {
     const response = await axios.patch(`/api/trays/${id}`, data);
     commit("refreshTrays", response.data[0]);
   },
+  async deleteTray({ commit }, id) {
+    const response = await axios.delete(`/api/trays/${id}`);
+    commit("removeTrays", response.data[0])
+  }
 };
 
 const mutations = {
@@ -40,7 +44,10 @@ const mutations = {
         state.trays[index] = updatedTray;
       }
     }),
-  removeTray: (state, newTrays) => (state.trays = newTrays),
+  removeTray: (state, deletedTray) => {
+    const index = state.trays.indexOf(deletedTray);
+    state.trays.splice(index, 1);
+  },
 };
 
 export default {
