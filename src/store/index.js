@@ -5,6 +5,7 @@ import selectTray from "./modules/selectTray";
 import selectCell from "./modules/selectCell";
 import column from "./modules/column";
 import row from "./modules/row";
+import location from "./modueles/location"
 
 Vue.use(Vuex);
 
@@ -15,5 +16,6 @@ export default new Vuex.Store({
     selectCell,
     column,
     row,
+    location,
   },
 });
