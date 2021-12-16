@@ -2,7 +2,7 @@
   <div>
     <Save />
     <Load />
-    <button class="reset" @click="handleClick">Reset</button>
+    <button class="revert" @click="handleClick">Revert</button>
   </div>
 </template>
 
@@ -18,16 +18,11 @@ export default {
     Load,
   },
   computed: {
-    ...mapGetters(["getRow", "getColumn", "selectTray", "allTrays"]),
+    ...mapGetters(["selectTray", "allTrays"]),
   },
   methods: {
     ...mapActions(["fetchTrays"]),
-    ...mapMutations([
-      "resetSelectTray",
-      "setRow",
-      "setColumn",
-      "setSelectTray",
-    ]),
+    ...mapMutations(["setSelectTray"]),
     async handleClick() {
       if (this.selectTray.id !== undefined) {
         await this.fetchTrays();
