@@ -34,6 +34,7 @@ h1 {
  border-style: solid;
  padding: 0;
  margin: 0;
+ margin-bottom: 0.5%;
  user-select: none;
 }
 

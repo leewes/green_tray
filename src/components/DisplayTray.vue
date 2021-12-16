@@ -55,11 +55,8 @@ export default {
 header {
   display: flex;
   align-items: center;
-  gap: 2%;
+  margin-left: 0;
   user-select: none;
-}
-
-h5 {
 }
 
 .display-tray {

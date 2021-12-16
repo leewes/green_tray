@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <h5>Currently editing:</h5>
-    <h5>{{ selectTray.name }}</h5>
+    <h5>{{ selectTray.name === "Input Name" ? "" : selectTray.name }}</h5>
     <Load />
   </div>
 </template>
