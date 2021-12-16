@@ -44,6 +44,20 @@ app.post("/api/trays", async (req, res) => {
   }
 });
 
+app.patch("/api/trays/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = await db("trays")
+      .where({ id: id })
+      .update(req.body)
+      .returning("*");
+    res.status(200).json(data);
+  } catch (err) {
+    console.error("Error patching tray!", err);
+    res.sendStatus(500);
+  }
+});
+
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "..", "dist", "index.html"));
 });
