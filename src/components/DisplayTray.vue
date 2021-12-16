@@ -4,7 +4,6 @@
       <h5>Tray Name:</h5>
       <input :placeholder="selectTray.name" @change="handleChange" />
     </header>
-
     <div v-if="selectTray.id === undefined">
       <div v-for="row in getRow" class="wrapper" :key="row">
         <div v-for="col in getColumn" :key="col">

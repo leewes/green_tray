@@ -22,6 +22,9 @@ export default {
 </script>
 
 <style>
+h5 {
+  margin: 2%;
+}
 .sidebar {
   padding-left: 0.5%;
   text-align: center;
