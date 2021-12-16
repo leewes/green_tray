@@ -1,6 +1,7 @@
 <template>
   <div class="display-tray">
     <div v-if="selectTray.id === undefined">
+      <button @click="handleClick">Reset</button>
       <div v-for="row in getRow" class="wrapper" :key="row">
         <div v-for="col in getColumn" :key="col">
           <NewCell :row="row" :col="col" />
@@ -18,7 +19,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import LoadCell from "./LoadCell";
 import NewCell from "./NewCell";
 
@@ -29,6 +30,14 @@ export default {
     NewCell,
   },
   computed: mapGetters(["selectTray", "selectCellData", "getRow", "getColumn"]),
+  methods: {
+    ...mapMutations(["setRow"]),
+    handleClick: async function () {
+      const currRow = this.getRow;
+      await this.setRow(0);
+      this.setRow(currRow);
+    },
+  },
 };
 </script>
 
