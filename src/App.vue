@@ -34,6 +34,7 @@ h1 {
  border-style: solid;
  padding: 0;
  margin: 0;
+ user-select: none;
 }
 
 #app {
@@ -46,7 +47,7 @@ h1 {
 }
 
 #container {
-  margin-top: 2%;
+  margin-top: 0%;
   display: flex;
   flex-direction: row;
 }

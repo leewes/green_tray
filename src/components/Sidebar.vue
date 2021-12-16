@@ -27,6 +27,7 @@ export default {
   text-align: center;
   width: 150px;
   padding: 0;
+  user-select: none;
 }
 .reset {
   cursor: pointer;
