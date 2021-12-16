@@ -22,7 +22,7 @@ export default {
   methods: {
     ...mapMutations(["addCellData", "setCell", "setLocation"]),
     handleClick: function () {
-      this.setLocation([this.col, this.row]);
+      this.setLocation([this.row, this.col]);
       this.setCell({
         name: this.selectCellData[this.row][this.col].name,
         color: this.selectCellData[this.row][this.col].color,
