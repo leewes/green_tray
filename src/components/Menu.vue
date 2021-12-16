@@ -2,7 +2,7 @@
   <div class="menu">
     <label>
       Seed Name:
-      <input :placeholder="getCell.name" />
+      <input @change="nameChange" :placeholder="getCell.name" />
     </label>
     <label>
       Seed Color:
@@ -55,13 +55,24 @@ export default {
       await this.setRow(0);
       this.setRow(currRow);
     },
+    nameChange: function (e) {
+      if (e.target.value.length !== 0) {
+        this.setCell({ ...this.getCell, name: e.target.value });
+        const data = {
+          [this.getLocation[0]]: {
+            [this.getLocation[1]]: this.getCell,
+          },
+        };
+        this.addCellData(data);
+      }
+    },
     colorChange: function (e) {
       if (e.target.value.length !== 0) {
         this.setCell({ ...this.getCell, color: e.target.value });
         const data = {
           [this.getLocation[0]]: {
             [this.getLocation[1]]: this.getCell,
-          }
+          },
         };
         this.addCellData(data);
       }
