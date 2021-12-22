@@ -26,6 +26,41 @@ app.get("/api/seeds", async (req, res) => {
   }
 });
 
+app.post("/api/seeds", async (req, res) => {
+  try {
+    const data = await db.insert(req.body).returning("*").into("seeds");
+    res.status(200).json(data);
+  } catch (err) {
+    console.error("Error posting seed!", err);
+    res.sendStatus(500);
+  }
+});
+
+app.patch("/api/seeds/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = await db("seeds")
+      .where({ id: id })
+      .update(req.body)
+      .returning("*");
+    res.status(200).json(data);
+  } catch (err) {
+    console.error("Error patching seed!", err);
+    res.sendStatus(500);
+  }
+});
+
+app.delete("/api/seeds/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = await db("seeds").where({ id: id }).del().returning("*");
+    res.status(200).json(data);
+  } catch (err) {
+    console.error("Error deleting seed!", err);
+    res.sendStatus(500);
+  }
+});
+
 //Endpoints for trays resource
 
 app.get("/api/trays", async (req, res) => {

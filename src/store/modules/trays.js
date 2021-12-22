@@ -31,8 +31,8 @@ const actions = {
   },
   async deleteTray({ commit }, id) {
     const response = await axios.delete(`/api/trays/${id}`);
-    commit("removeTray", response.data[0])
-  }
+    commit("removeTray", response.data[0]);
+  },
 };
 
 const mutations = {
