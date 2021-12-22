@@ -1,15 +1,15 @@
 const state = {
-  selectCell: {},
+  selectCell: { name: "No Seed", color: "gray" },
 };
 
 const getters = {
-  selectCell: (state) => state.selectCell,
+  getCell: (state) => state.selectCell,
 };
 
 const actions = {};
 
 const mutations = {
-  setSelectCell: (state, selectCell) => (state.selectCell = selectCell),
+  setCell: (state, selectCell) => (state.selectCell = selectCell),
 };
 
 export default {

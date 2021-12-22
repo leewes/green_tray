@@ -1,5 +1,9 @@
 <template>
   <div class="display-tray">
+    <header>
+      <h5>Tray Name:</h5>
+      <input :placeholder="selectTray.name" @change="handleChange" />
+    </header>
     <div v-if="selectTray.id === undefined">
       <div v-for="row in getRow" class="wrapper" :key="row">
         <div v-for="col in getColumn" :key="col">
@@ -18,7 +22,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import LoadCell from "./LoadCell";
 import NewCell from "./NewCell";
 
@@ -28,12 +32,39 @@ export default {
     LoadCell,
     NewCell,
   },
-  computed: mapGetters(["selectTray", "selectCellData", "getRow", "getColumn"]),
+  computed: mapGetters([
+    "selectTray",
+    "selectCellData",
+    "getRow",
+    "getColumn",
+    "allTrays",
+  ]),
+  methods: {
+    ...mapMutations(["setSelectTray"]),
+    handleChange(e) {
+      if (e.target.value.length !== 0) {
+        this.setSelectTray({ name: e.target.value });
+      }
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+header {
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+  user-select: none;
+}
+
+.display-tray {
+  width: 85%;
+  height: 100%;
+  margin: auto;
+  margin-top: 0;
+}
 .wrapper {
   display: flex;
   cursor: pointer;

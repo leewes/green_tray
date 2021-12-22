@@ -18,6 +18,7 @@ export default {
         };
       if (this.selectTray.id !== undefined) {
         await this.patchTray(data);
+        this.fetchTrays();
       } else {
         await this.postTray(data);
         this.setSelectTray(this.allTrays[this.allTrays.length - 1]);

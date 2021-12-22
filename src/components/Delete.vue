@@ -1,5 +1,5 @@
 <template>
-  <button @click="handleClick">Delete</button>
+  <div class="trash" @click="handleClick">🗑️</div>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default {
     handleClick: async function () {
       await this.deleteTray(this.id);
       if (this.allTrays.length > 0) {
-        this.setSelectTray(this.allTrays[this.allTrays.length - 1]);
+        this.setSelectTray(this.allTrays[0]);
       } else {
         this.resetSelectTray();
       }
@@ -25,4 +25,13 @@ export default {
 </script>
 
 <style>
+.trash {
+  cursor: pointer;
+}
+
+.trash:hover {
+    background-color: red;
+}
+
+
 </style>
